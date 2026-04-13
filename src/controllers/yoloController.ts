@@ -3,7 +3,7 @@ import * as yoloService from "../services/yoloService.js";
 
 export const handleVideoAnalysis = async (req: Request, res: Response) => {
   try {
-    const { user_id, usuario } = req.body;
+    const user_id = (req as any).user.id;
     const file = req.file; // Archivo subido vía Multer
 
     if (!file || !user_id) {
