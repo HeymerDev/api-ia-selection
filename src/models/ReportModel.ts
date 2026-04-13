@@ -26,7 +26,20 @@ export const createReporte = async (reporte: IReporteTecnico) => {
 };
 
 export const getAllReportes = async () => {
-  const query = `SELECT * FROM reportes_tecnicos ORDER BY fecha_reporte DESC;`;
+  const query = `
+    SELECT 
+      r.id,
+      r.jugador_id,
+      r.contenido,
+      r.categoria,
+      r.fecha_reporte,
+      j.nombre AS nombre_jugador,
+      j.foto_url AS foto_jugador
+    FROM reportes_tecnicos r
+    INNER JOIN jugadores j ON r.jugador_id = j.id_api
+    ORDER BY r.fecha_reporte DESC;
+  `;
+
   const { rows } = await pool.query(query);
   return rows;
 };
