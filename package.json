@@ -1,0 +1,45 @@
+{
+  "name": "backend-ia-seleccion",
+  "version": "1.0.0",
+  "description": "Backend API getaway for ia Seleccion",
+  "keywords": [
+    "IA"
+  ],
+  "homepage": "https://github.com/HeymerDev/api-ia-selection#readme",
+  "bugs": {
+    "url": "https://github.com/HeymerDev/api-ia-selection/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HeymerDev/api-ia-selection.git"
+  },
+  "license": "MIT",
+  "author": "HeymerDev",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec \"node --loader ts-node/esm\" src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "axios": "^1.15.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "form-data": "^4.0.5",
+    "multer": "^2.1.1",
+    "pg": "^8.20.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/form-data": "^2.2.1",
+    "@types/multer": "^2.1.0",
+    "@types/node": "^25.6.0",
+    "@types/pg": "^8.20.0",
+    "nodemon": "^3.1.14",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.2"
+  }
+}
