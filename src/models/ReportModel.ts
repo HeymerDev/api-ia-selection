@@ -24,3 +24,9 @@ export const createReporte = async (reporte: IReporteTecnico) => {
   const { rows } = await pool.query(query, values);
   return rows[0];
 };
+
+export const getAllReportes = async () => {
+  const query = `SELECT * FROM reportes_tecnicos ORDER BY fecha_reporte DESC;`;
+  const { rows } = await pool.query(query);
+  return rows;
+};

@@ -1,8 +1,12 @@
 import { Router } from "express";
-import { handleCreateReporte } from "../controllers/reportController.js";
+import {
+  handleCreateReporte,
+  handleGetReportes,
+} from "../controllers/reportController.js";
 
 const router = Router();
 
 router.post("/", handleCreateReporte);
+router.get("/", handleGetReportes);
 
 export default router;

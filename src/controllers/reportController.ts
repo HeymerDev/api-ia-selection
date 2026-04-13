@@ -30,3 +30,18 @@ export const handleCreateReporte = async (req: Request, res: Response) => {
     });
   }
 };
+
+export const handleGetReportes = async (req: Request, res: Response) => {
+  try {
+    const reportes = await reporteService.obtenerTodosLosReportes();
+    res.json({
+      success: true,
+      data: reportes,
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+};

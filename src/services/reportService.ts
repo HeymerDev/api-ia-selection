@@ -5,3 +5,7 @@ export const registrarNuevoReporte = async (
 ) => {
   return await reporteModel.createReporte(datos);
 };
+
+export const obtenerTodosLosReportes = async () => {
+  return await reporteModel.getAllReportes();
+};
