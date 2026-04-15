@@ -1,10 +1,21 @@
 import { pool } from "../config/db.js";
 
+export interface IPosicionJugador {
+  jugador_id: number | string;
+  nombre: string;
+  foto: string;
+  x: number; // Coordenada en el lienzo/campo
+  y: number; // Coordenada en el lienzo/campo
+  rol?: string; // Ej: 'DC', 'MCO', 'LI'
+}
+
 export interface IAlineacion {
-  id?: string;
   user_id: string;
   nombre_tactica: string;
-  esquema_json: any; // Aquí guardaremos el array de posiciones
+  esquema_json: {
+    formacion: string; // Ej: '4-3-3'
+    posiciones: IPosicionJugador[];
+  };
 }
 
 export const saveAlineacion = async (data: IAlineacion) => {
