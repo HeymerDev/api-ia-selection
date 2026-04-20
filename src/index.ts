@@ -16,7 +16,7 @@ app.use("/api/reportes", reportRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/alineaciones", alineacionRoutes);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`🚀 Servidor modularizado en http://localhost:${PORT}`);
 });
