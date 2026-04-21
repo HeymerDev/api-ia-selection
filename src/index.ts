@@ -4,17 +4,24 @@ import yoloRoutes from "./routes/yoloRoutes.js";
 import reportRoutes from "./routes/reportRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import alineacionRoutes from "./routes/alineacionRoutes.js";
+import jugadorRoutes from "./routes/jugadorRoutes.js";
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
+app.use((req, res, next) => {
+  console.log(`[Ruta Intentada]: ${req.method} ${req.url}`);
+  next();
+});
+
 // Rutas
 app.use("/api/yolo", yoloRoutes);
 app.use("/api/reportes", reportRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/alineaciones", alineacionRoutes);
+app.use("/api/jugadores", jugadorRoutes);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
