@@ -26,3 +26,15 @@ export const handleCompararJugadores = async (req: Request, res: Response) => {
     res.status(500).json({ success: false, error: error.message });
   }
 };
+
+export const handleJugadorById = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const jugador = await jugadoresModel.getJugadorConEstadisticas(
+      id as string,
+    );
+    res.json({ success: true, data: jugador });
+  } catch (error: any) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+};
